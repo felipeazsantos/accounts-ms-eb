@@ -1,6 +1,6 @@
 package dev.felipeazsantos.accounts.mappers;
 
-import dev.felipeazsantos.accounts.Dto.CustomerDto;
+import dev.felipeazsantos.accounts.dto.CustomerDto;
 import dev.felipeazsantos.accounts.entity.Customer;
 
 public class CustomerMapper {

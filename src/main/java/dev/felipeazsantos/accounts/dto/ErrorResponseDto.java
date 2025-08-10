@@ -1,4 +1,4 @@
-package dev.felipeazsantos.accounts.Dto;
+package dev.felipeazsantos.accounts.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

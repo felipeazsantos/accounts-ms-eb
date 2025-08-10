@@ -1,4 +1,4 @@
-package dev.felipeazsantos.accounts.Dto;
+package dev.felipeazsantos.accounts.dto;
 
 import lombok.Data;
 
@@ -7,4 +7,5 @@ public class CustomerDto {
     private String name;
     private String email;
     private String mobileNumber;
+    private AccountsDto accountsDto;
 }
