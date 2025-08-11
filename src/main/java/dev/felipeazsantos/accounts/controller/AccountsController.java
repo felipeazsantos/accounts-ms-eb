@@ -27,7 +27,35 @@ public class AccountsController {
 
     @GetMapping("/fetch")
     public ResponseEntity<CustomerDto> fetchAccountDetails(@RequestParam String mobileNumber) {
-        CustomerDto customerDto = accountsService.fetcAccount(mobileNumber);
+        CustomerDto customerDto = accountsService.fetchAccount(mobileNumber);
         return ResponseEntity.ok(customerDto);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<ResponseDto> updateAccountDetails(@RequestBody CustomerDto customerDto) {
+       boolean isUpdated = accountsService.updateAccount(customerDto);
+       if (isUpdated) {
+           return ResponseEntity.ok(new ResponseDto(
+                   AccountsConstants.STATUS_200,
+                   AccountsConstants.MESSAGE_200));
+       }
+
+        return ResponseEntity.internalServerError().body(new ResponseDto(
+                AccountsConstants.STATUS_500,
+                AccountsConstants.MESSAGE_500));
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<ResponseDto> deleteAccountDetails(@RequestParam String mobileNumber) {
+        boolean isDeleted = accountsService.deleteAccount(mobileNumber);
+        if (isDeleted) {
+            return ResponseEntity.ok(new ResponseDto(
+                    AccountsConstants.STATUS_200,
+                    AccountsConstants.MESSAGE_200));
+        }
+
+        return ResponseEntity.internalServerError().body(new ResponseDto(
+                AccountsConstants.STATUS_500,
+                AccountsConstants.MESSAGE_500));
     }
 }
